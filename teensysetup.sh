@@ -11,3 +11,5 @@ tar -xvzf arduino-1.0.5-linux64.tgz
 rm arduino-1.0.5-linux64.tgz
 rm 49-teensy.rules
 ./teensyduino.64.bit
+
+#go to tools>board and select teensy 3.0
