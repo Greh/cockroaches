@@ -1,13 +1,14 @@
-int RTLpin = 23; 
-int RTRpin = 22; 
-int LTLpin = 21; 
-int LTRpin = 20; 
-int LBLpin = 16; 
-int LBRpin = 15; 
-int RBLpin = 14; 
-int RBRpin = 13; 
-int delayspd = 1000; 
-int spinspd = 256; 
+int RTLpin = 23;
+int RTRpin = 22;
+int LTLpin = 21;
+int LTRpin = 20;
+int LBLpin = 16;
+int LBRpin = 15;
+int RBLpin = 14;
+int RBRpin = 13;
+int val = 0;
+int valnew = 0;
+int light = 17;
 
 void setup(){
   pinMode(RTLpin, OUTPUT);
@@ -18,34 +19,14 @@ void setup(){
   pinMode(LBRpin, OUTPUT);
   pinMode(RBLpin, OUTPUT);
   pinMode(RBRpin, OUTPUT);
+  Serial.begin(9600);
 }
-
-void loop() {
-  //turn everything off 
-  digitalWrite(LBLpin, HIGH);
-  digitalWrite(LBRpin, HIGH); 
-  digitalWrite(RBLpin, HIGH);
-  digitalWrite(RBRpin, HIGH); 
-  //forward 
-  digitalWrite(LBRpin, LOW); 
-  digitalWrite(RBLpin, LOW);
-  analogWrite(LTLpin, spinspd); 
-  analogWrite(RTRpin, spinspd); 
-  delay(delayspd); 
-  analogWrite(LTLpin, 0); 
-  analogWrite(RTRpin, 0);
-  digitalWrite(LBRpin, HIGH);
-  digitalWrite(RBLpin, HIGH);
-  delay(delayspd); 
-  //backward
-  digitalWrite(LBLpin, LOW); 
-  digitalWrite(RBRpin, LOW);
-  analogWrite(LTRpin, spinspd); 
-  analogWrite(RTLpin, spinspd); 
-  delay(delayspd); 
-  analogWrite(LTRpin, 0); 
-  analogWrite(RTLpin, 0);
-  digitalWrite(LBLpin, HIGH);
-  digitalWrite(RBRpin, HIGH);
-  delay(delayspd); 
+void loop(){
+    digitalWrite(RBRpin, HIGH);
+    val = analogRead(light);
+    Serial.println(val);
+    valnew = map(val, 0, 156, 0, 255);
+    Serial.println(valnew);
+    digitalWrite(RBLpin, LOW);
+    analogWrite(RTRpin, valnew);
 }
