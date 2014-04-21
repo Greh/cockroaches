@@ -8,7 +8,7 @@ int RBLpin = 14;
 int RBRpin = 13;
 int val = 0;
 int valnew = 0;
-int light = 17;
+int light = 18;
 
 void setup(){
   pinMode(RTLpin, OUTPUT);
@@ -25,7 +25,7 @@ void loop(){
     digitalWrite(RBRpin, HIGH);
     val = analogRead(light);
     Serial.println(val);
-    valnew = map(val, 0, 156, 0, 255);
+    valnew = map(val, 0, 130, 0, 255);
     Serial.println(valnew);
     digitalWrite(RBLpin, LOW);
     analogWrite(RTRpin, valnew);

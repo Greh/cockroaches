@@ -2,7 +2,7 @@ int TLpin = 21;
 int TRpin = 20;
 int BLpin = 14;
 int BRpin = 13;
-int light = 22;
+int light = 18;
 int val = 0;
 int valnew = 0;
 
