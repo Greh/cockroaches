@@ -47,7 +47,7 @@ void loop(){
     analogWrite(RTL, Malp); //PNP how calculate Malp??? need testing
     delay(1000);
   }
-  if (brainLeft > brainRight){
+  elif (brainLeft > brainRight){
     //safety
     digitalWrite(LBL, HIGH); //NPN
     digitalWrite(RBR, HIGH); //NPN
@@ -60,7 +60,7 @@ void loop(){
     analogWrite(RTR, brainLeft); //PNP
     //delay(1000);
   }
-  if (brainRight > 2 * brainLeft){
+  elif (brainRight > 2 * brainLeft){
     //safety
     digitalWrite(RBR, HIGH); //NPN
     digitalWrite(LBR, HIGH); //NPN
@@ -73,7 +73,7 @@ void loop(){
     analogWrite(LTR, Malp); //PNP how calculate Malp??? need testing
     //delay(1000);
   }
-  if (brainRight > brainLeft){
+  elif (brainRight > brainLeft){
     //safety
     digitalWrite(RBL, HIGH); //NPN
     digitalWrite(LBR, HIGH); //NPN
