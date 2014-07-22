@@ -31,9 +31,20 @@ void setup(){
 }
 
 void loop(){
+  //safety
+  digitalWrite(LBL, HIGH);
+  digitalWrite(LBR, HIGH);
+  digitalWrite(RBL, HIGH);
+  digitalWrite(RBR, HIGH);
+  analogWrite(LTL, 0);
+  analogWrite(LTR, 0);
+  analogWrite(RTL, 0);
+  analogWrite(RTR, 0);
+  //look around
   brainLeft = analogRead(eyeballLeft);
   brainRight = analogRead(eyeballRight);
   //map brain inputs to motor numbers 
+  //react
   if (brainLeft > 2 * brainRight){
     //safety
     digitalWrite(LBL, HIGH); //NPN
